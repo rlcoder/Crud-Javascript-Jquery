@@ -26,7 +26,28 @@ body{
  2 - SECTION
 ==============================================================================*/
 
+.group-actions{
+  text-align: center;
+}
+.group-actions i{
+  font-size: 18px;
+}
+.btn-action{
+  margin-left: 5px;
+  padding: 5px 7px 2px 7px;
+}
 
+@media only screen and (max-width: 389px){
+  .group-actions i{
+    font-size: 14px;
+  }
+  .btn-action{
+    margin: 2px 2px 0px 0px;
+    padding: 2px 4px 2px 4px;
+  }
+
+
+}
 
 /*======================================
  #SUB-SECTION

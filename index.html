@@ -7,6 +7,8 @@
   <title>Crud JS</title>
   <!-- Bootstrap -->
   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+  <!-- fonts -->
+  <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
   <!-- Main Styleshet -->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
@@ -15,7 +17,7 @@
     <section>
       <div class="container">
         <div class="row">
-          <div class="table-responsive">
+          <div class="col-md-6">
             <table id="crudTable" class="table table-bordered">
               <!-- Table Head -->
               <thead>
@@ -23,18 +25,43 @@
                   <th>id</th>
                   <th>Product name</th>
                   <th>Product details</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <!-- Table Body -->
               <tbody>
-                 <tr>
-                   <td>1</td>
-                   <td>Product1</td>
-                   <td>DetailsProduct1</td>
-                 </tr>
-               </tbody>
+              <tr>
+                <td>011</td>
+                <td>sadasdas</td>
+                <td>asdasdasd</td>
+                <td>
+                <div class="group-actions">
+                <button class="btn btn-info btn-action"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                <button class="btn btn-danger btn-action"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+                </div>
+                </td>
+              </tr>
+              </tbody>
             </table>
           </div><!-- ./end col-->
+
+        <!-- product form crud -->
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="productName">Product Name</label>
+            <input type="text" class="form-control" name="productName" id="productName"
+            value="Product Name" onfocus="this.value='';">
+          </div>
+
+          <div class="form-group">
+            <label for="productDetail">Product Details</label>
+            <input type="text" class="form-control" name="productDetail"
+             value="Product Details" id="productDetail" onfocus="this.value='';">
+          </div>
+        <button class="btn btn-primary" onclick="rowAdd();" >add product</button>
+        <button class="btn btn-danger">delete</button>
+        </div><!-- ./end form-crud -->
+
         </div><!-- ./end row -->
       </div><!-- ./end Container -->
     </section>
@@ -42,9 +69,9 @@
 
 
 <!-- scripts -->
-<script type="text/script" src="assets/js/jquery.min.js"></script>
-<script type="text/script" src="assets/js/Bootstrap.min.js"></script>
-<script type="text/script" src="assets/js/main.js"> </script>
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/main.js"></script>
 
 </body>
 </html>

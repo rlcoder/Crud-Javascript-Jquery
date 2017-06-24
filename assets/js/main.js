@@ -19,11 +19,16 @@ function rowAdd(){
 			"<td>001</td>" +
 			"<td>Product1</td>"+
 			"<td>DetailsProduct1</td>"+
+			"<td><div class=\"group-actions\">"+
+			"<button class=\"btn btn-info btn-action\"><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i></button>"+
+			"<button class=\"btn btn-danger btn-action\"><i class=\"fa fa-times-circle\" aria-hidden=\"true\"></i></button>"+
+			"</div></td>"+
 		"</tr>"
 	);
 }
 
 	$(document).ready(function(){
 
+		rowAdd();
 
 	});
