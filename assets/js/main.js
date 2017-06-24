@@ -8,10 +8,22 @@ Version: 1.0
 =================================================*/
 
 
+//function to add row in table
+function rowAdd(){
+	if ($("#crudTable tbody")== 0){
+		$("#crudTable").append("<tbody></tbody>");
+	}
+
+		$("#crudTable tbody").append(
+		"<tr>"+
+			"<td>001</td>" +
+			"<td>Product1</td>"+
+			"<td>DetailsProduct1</td>"+
+		"</tr>"
+	);
+}
+
 	$(document).ready(function(){
-		//function to add row in table
-		function rowAdd(){
-			$("#crudTable tbody")
-		}
+
 
 	});
