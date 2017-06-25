@@ -49,17 +49,16 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="productName">Product Name</label>
-            <input type="text" class="form-control" name="productName" id="productName"
-            value="Product Name" onfocus="this.value='';">
+            <input type="text" class="form-control" name="productName" id="productName">
           </div>
 
           <div class="form-group">
             <label for="productDetail">Product Details</label>
-            <input type="text" class="form-control" name="productDetail"
-             value="Product Details" id="productDetail" onfocus="this.value='';">
+            <input type="text" class="form-control" name="productDetail" id="productDetail">
           </div>
-        <button class="btn btn-primary" onclick="rowAdd();" >add product</button>
-        <button class="btn btn-danger">delete</button>
+        <button type="button" id="updateButton"  onclick="tableUpdate();"
+         class="btn btn-primary">Add product</button>
+        <button class="btn btn-danger">Delete</button>
         </div><!-- ./end form-crud -->
 
         </div><!-- ./end row -->
