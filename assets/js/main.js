@@ -19,7 +19,7 @@ function rowAddToTable(){
 		//increment id
 		_nextId +=1;
 }
-//function to add row in table where id= item clicked
+//Function to add row in table receiving as parameter an id - which in this case would be the variable _nextId
 function buildTableRow(id){
 	var rowTable =
 	"<tr>"+
@@ -44,36 +44,66 @@ function formClear(){
 
 //function to delete table row
 function deleteRow(get_btnID){
-	//select the clicked eleme
-	$(get_btnID).parent().parent().parent("tr").remove();
+
+	if ($(get_btnID).text() == "Delete") {
+		//compare text product id with _activedId
+		if ($("#productId").text()== _activedId) {
+			//select <tr> through the id in attribute [data-id] and remove
+			$(".group-actions button[data-id='"+ _activedId +"']")
+			.parent().parent().parent("tr")[0].remove();
+
+			//clear form and hide elements and update Text button and focus input text
+			formClear();
+			$("#btnDelete, .lblProductId, #productId").hide();
+			$("#updateButton").text("Add Product");
+			$("#productName").focus();
+		}
+	}else {
+		//select the clicked element and remove
+		$(get_btnID).parent().parent().parent("tr").remove();
+
+		//clear form and hide elements and update Text button.
+		formClear();
+		$("#btnDelete, .lblProductId, #productId").hide();
+		$("#updateButton").text("Add Product");
+	}
 }
 
 //function to edit table row in form
 function editRow(get_btnID){
+
+	//hide elements
+	$("#btnDelete, .lblProductId, #productId").show();
+	//get element clicked  and select father (tr)
 	var row  = $(get_btnID).parent().parent().parent("tr");
+	//get children of the variable row equal (td) = cells and add in array cols;
 	var cols = row.children("td");
-	console.log(cols);
-	console.log(cols[3]);
+
+	//get the id on the button and add in variable _activedId
 	_activedId = $($(cols[3]).find(".group-actions").children("button")[0]).data("id");
-	console.log("active id");
-	console.log(_activedId);
+
+	//add _activedId in label
+	$("#productId").text(_activedId);
+	//add in form the values stored in the array
 	$("#productName").val($(cols[1]).text());
 	$("#productDetail").val($(cols[2]).text());
-
+	//update text button
 	$("#updateButton").text("Update");
 }
 
 //function to update row table
 function tableUpdateRow(id){
-		console.log("Tabela de adicionar linha");
-	console.log(_activedId);
-	var row = $(".group-actions button[data-id='"+ id +"']");
-	console.log(row);
-	//Adiciona linha na tabela
-	$(row).after(buildTableRow());
+	//select father of the button containing the id receveid per parameter (tr)
+	var row = $(".group-actions button[data-id='"+ id +"']").parent().parent().parent("tr")[0];
+	//Add row in table as parameter _activeID
+	$(row).after(buildTableRow(_activedId));
 	//remove old row
 	$(row).remove();
+	//clear inputs
 	formClear();
+	//hide elements in form
+	$("#btnDelete, .lblProductId, #productId").hide();
+	//update text in button update to add product
 	$("#updateButton").text("Add Product");
 }
 
@@ -81,7 +111,7 @@ function tableUpdateRow(id){
 function tableUpdate(){
 	if ($("#productName").val() != null && $("#productName").val()!=''){
 		if($("#updateButton").text() == "Update"){
-			tableUpdateRow(_activedId)
+			tableUpdateRow(_activedId);
 		} else {
 			rowAddToTable();
 		}
@@ -89,8 +119,3 @@ function tableUpdate(){
 			$("#productName").focus();
 	}
 }
-	$(document).ready(function(){
-
-
-
-	});

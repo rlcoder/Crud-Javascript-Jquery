@@ -30,23 +30,16 @@
               </thead>
               <!-- Table Body -->
               <tbody>
-              <tr>
-                <td>011</td>
-                <td>sadasdas</td>
-                <td>asdasdasd</td>
-                <td>
-                <div class="group-actions">
-                <button class="btn btn-info btn-action"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                <button class="btn btn-danger btn-action"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
-                </div>
-                </td>
-              </tr>
               </tbody>
             </table>
           </div><!-- ./end col-->
 
         <!-- product form crud -->
         <div class="col-md-6">
+          <div class="form-group">
+            <label class="lblProductId" for="productId">Product ID:</label><label id="productId"></label>
+          </div>
+
           <div class="form-group">
             <label for="productName">Product Name</label>
             <input type="text" class="form-control" name="productName" id="productName">
@@ -58,7 +51,7 @@
           </div>
         <button type="button" id="updateButton"  onclick="tableUpdate();"
          class="btn btn-primary">Add product</button>
-        <button class="btn btn-danger">Delete</button>
+        <button id="btnDelete" onclick="deleteRow(this);" class="btn btn-danger">Delete</button>
         </div><!-- ./end form-crud -->
 
         </div><!-- ./end row -->
